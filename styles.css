@@ -1,0 +1,293 @@
+/* استایل پایه نوبار */
+body {
+  margin: 0 ;
+  padding: 20px 0 0 0 ;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  direction: rtl; /* جهت‌دهی راست به چپ */
+  text-align: right; /* تنظیم متن به راست */
+}
+/* استایل برای نوار بالا */
+.topbar {
+  background-color: #ffffff;
+  padding: 5px 10px 0px 10px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* برای تنظیم موقعیت وسط */
+  height: 40px;
+  z-index: 1000;
+
+}
+
+.left-topbar {
+  position: absolute;
+  left: 0%;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* قرار دادن لوگو در وسط */
+}
+
+.contact,
+.language {
+  display: inline-block;
+  margin-left: 10px; /* فاصله بین آیکن‌ها */
+}
+
+.contact {
+  padding: 0px 20px;
+  order: 1; /* تنظیم موقعیت تماس در سمت چپ */
+}
+
+.language {
+  padding: 0px 20px;
+  order: 2; /* تنظیم موقعیت زبان در سمت چپ */
+  margin-left: auto; /* فاصله اتوماتیک بین تماس و زبان */
+}
+
+.logo img {
+  width: auto; /* تنظیم اندازه لوگو */
+  height: auto;
+}
+
+.contact img,
+.language img {
+  width: 34px; /* تنظیم اندازه آیکن‌ها */
+  height: 34px;
+  cursor: pointer; /* نشانگر موس */
+}
+
+.navbar {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between; /* فاصله بین آیتم‌ها */
+  align-items: center; /* ترازبندی آیتم‌ها به صورت عمودی */
+  position: relative;
+  height: 20px !important;
+  margin: 0 0 20px 0 !important;
+  z-index: 1000;
+}
+
+.navbar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* اضافه شده برای انعطاف‌پذیری */
+  z-index: 1000;
+}
+
+.navbar-item {
+  position: relative;
+  margin: 0 1px;
+  cursor: pointer;
+}
+
+.navbar-item > a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  display: block;
+}
+
+.navbar-item > a:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.navbar,
+.topbar {
+  overflow: visible;
+}
+
+/* استایل زیرمنوها */
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 1000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.submenu.active {
+  display: block;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.submenu-item > a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 5px 15px;
+  display: block;
+}
+
+.submenu-item > a:hover {
+  background-color: #ffffff;
+}
+
+.submenu .submenu {
+  top: 0;
+  right: 100%;
+}
+
+/* مخفی کردن دکمه همبرگری در صفحات بزرگ‌تر */
+.hamburger {
+  display: none;
+  z-index: 1001;
+}
+
+.anim_swiper {
+  width: 100%;
+  height: 70vh;
+}
+
+.animat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.header_text {
+  padding: 8px 0;
+  font-size: 28px;
+}
+.dis_text {
+  font-size: 20px;
+}
+.dis_text_a {
+  padding: 8px 0;
+  font-size: 20px;
+}
+
+/* مدیا کوئری‌ها برای حالت‌های مختلف */
+/* حالت دسکتاپ */
+@media (min-width: 1025px) {
+  .topbar {
+    padding: 20px; /* پدینگ بیشتر برای دسکتاپ */
+  }
+
+  .logo img {
+    width: 150px; /* اندازه بزرگ‌تر برای لوگو در دسکتاپ */
+  }
+
+  .contact img,
+  .language img {
+    width: 34px; /* اندازه بزرگ‌تر برای آیکن‌ها در دسکتاپ */
+    height: 34px;
+  }
+}
+
+/* حالت تبلت */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .topbar {
+    flex-direction: row; /* حالت ردیفی برای تبلت */
+    padding: 15px; /* تنظیم پدینگ برای تبلت */
+  }
+
+  .logo {
+    position: static; /* تغییر موقعیت لوگو در تبلت */
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    width: 120px; /* تنظیم اندازه لوگو برای تبلت */
+  }
+
+  .contact img,
+  .language img {
+    width: 28px; /* تنظیم اندازه آیکن‌ها برای تبلت */
+    height: 28px;
+  }
+}
+
+/* حالت موبایل */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column; /* تنظیم آیتم‌ها به صورت عمودی */
+    padding: 0px; /* تنظیم پدینگ برای موبایل */
+  }
+
+  .logo {
+    position: static; /* تغییر موقعیت لوگو در موبایل */
+    transform: none;
+    margin-bottom: 10px;
+  }
+
+  .contact,
+  .language {
+    order: 0; /* تنظیم موقعیت آیتم‌ها */
+    margin: 5px 0; /* تنظیم فاصله بین آیتم‌ها */
+  }
+
+  .logo img {
+    width: 100px; /* تنظیم اندازه لوگو برای موبایل */
+  }
+
+  .contact img,
+  .language img {
+    width: 24px; /* تنظیم اندازه آیکن‌ها برای موبایل */
+    height: 24px;
+  }
+
+  .navbar-menu {
+    display: none; /* مخفی کردن منو در صفحات کوچک‌تر */
+    flex-direction: column; /* تنظیم آیتم‌های منو به صورت عمودی */
+    width: auto; /* عرض کامل برای آیتم‌ها */
+    background-color:rgba(255, 255, 255, 0.8); /* پس‌زمینه برای منوی همبرگری */
+    position: absolute;
+    top: 40px; /* فاصله از نوار بالا */
+    z-index: 1000;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar-item {
+    margin: 10px 0; /* فاصله بین آیتم‌ها */
+    width: 100%; /* عرض کامل برای آیتم‌ها */
+  }
+
+  .submenu {
+    padding-right: 0;
+    position: static;
+    width: 100%;
+  }
+
+  .submenu-item {
+    width: 100%;
+  }
+
+  .hamburger {
+    display: block; /* نمایش دکمه همبرگری در صفحات کوچک‌تر */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    z-index: 1001;
+  }
+}
+
+/* استایل برای آیکن همبرگری */
+.hamburger img {
+  width: 34px; /* اندازه آیکن */
+  height: 34px; /* اندازه آیکن */
+  cursor: pointer; /* نشانگر موس */
+}
