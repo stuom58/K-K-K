@@ -1,0 +1,185 @@
+:root {
+  --box-shadow-value: 0px 0px 5px 6px rgba(0, 0, 0, 0.3);
+  --swiper-pagination-h-value:rgba(13, 68, 119, 0.19);
+  --swiper-pagination-s-value:rgba(13, 68, 119, 0.89);
+}
+html,
+.anim_swiper .body {
+  position: relative;
+  height: 70%;
+}
+
+.anim_swiper .body {
+  background: #c7c1c1;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+.anim_swiper .swiper {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.anim_swiper .swiper-slide {
+  font-size: 14px;
+  color: #080101;
+  align-items: flex-start;
+  justify-content: flex-start;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 30px 50px;
+ 
+}
+
+.anim_swiper .parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 140%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+ 
+}
+
+.anim_swiper .swiper-slide .title {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.anim_swiper .swiper-slide .subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.anim_swiper .swiper-slide .p_text {
+  font-size: 29px;
+  /* max-width: 40vw; */
+  line-height: 1.5;
+  font-weight: 400; 
+  text-align: justify;
+  padding-top: 6px;
+  margin-top: 0;
+}
+
+
+/* CSS برای پگینیشن مربع و قرار دادن آن در پایین‌ترین قسمت اسوایپر */
+.anim_swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color:var(--swiper-pagination-s-value);
+  opacity: 0.8;
+  border-radius: 0; /* حذف حالت دایره‌ای برای مربع شدن */
+  margin: 10px; /* فاصله بیشتر بین پگینیشن‌ها */
+}
+
+.anim_swiper .swiper-pagination-bullet-active {
+  background-color: var(--swiper-pagination-h-value);
+}
+
+.anim_swiper .swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+
+
+
+
+
+@media (min-width: 1025px) {
+
+  .anim_swiper .swiper-slide .title {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  
+  .anim_swiper .swiper-slide .subtitle {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  
+  .anim_swiper .swiper-slide .p_text {
+    font-size: 15px;
+    max-width: 40vw;
+    line-height: 1.5;
+    font-weight: 400; 
+    text-align: justify;
+    padding-top: 6px;
+    margin-top: 0;
+  }
+
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .anim_swiper .swiper-slide .title {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  
+  .anim_swiper .swiper-slide .subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  
+  .anim_swiper .swiper-slide .p_text {
+    font-size: 15px;
+    max-width: 40vw;
+    line-height: 1.5;
+    font-weight: 400; 
+    text-align: justify;
+    padding-top: 6px;
+    margin-top: 0;
+  }
+
+
+}
+
+
+/* حالت موبایل */
+@media (max-width: 768px) {
+  .anim_swiper .swiper-slide .title {
+    font-size: 20px;
+    max-width: 80vw;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  
+  .anim_swiper .swiper-slide .subtitle {
+    font-size: 17px;
+    max-width: 80vw;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  
+  .anim_swiper .swiper-slide .p_text {
+    font-size: 14px;
+    max-width: 50vw;
+    line-height: 1.5;
+    font-weight: 500; 
+    text-align: justify;
+    padding-top: 2px;
+    margin-top: 0;
+  }
+
+
+}
+
