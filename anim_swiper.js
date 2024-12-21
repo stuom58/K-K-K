@@ -1,5 +1,5 @@
 var swiper = new Swiper(".mySwiper", {
-    speed: 900,
+    speed: 2000,
     parallax: true,
     pagination: {
       el: ".swiper-pagination",
