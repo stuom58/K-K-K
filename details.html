@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>جزییات قطعات</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./footer-style.css" />
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+
+    <h1>&nbsp;&nbsp;جزئیات محصول</h1>
+    <div id="product-details"></div>
+
+    <script type="module">
+      import { slides } from "./data.js"; // وارد کردن مجموعه داده‌ها
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = parseInt(urlParams.get("id")); // بازیابی ID از URL
+
+        // جستجوی شیء مورد نظر با استفاده از ID
+        const slideData = slides.find((slide) => slide.id === id);
+
+        if (slideData) {
+          // نمایش اطلاعات
+          const productDetails = document.getElementById("product-details");
+productDetails.innerHTML = ` <div style="margin-right: 20px;;">
+  <img src="${slideData.img_src}" alt="${slideData.header_t}" style="width: 400px; height: 300px;">
+  <h2>${slideData.header_t}</h2>
+  <p>نوع: ${slideData.type}</p>
+  <p>${slideData.des}</p>
+  <p>${slideData.description}</p>
+  </div>
+`;
+
+        } else {
+          console.error("No slide data found for the given ID.");
+        }
+      });
+    </script>
+
+    <div id="footer-container"></div>
+    <script src="./load-footer.js"></script>
+    <script src="./load-topbar.js"></script>
+    <script src="./load-navbar.js"></script>
+  </body>
+</html>

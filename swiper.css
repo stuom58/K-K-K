@@ -1,7 +1,7 @@
 :root {
   --box-shadow-value: 0px 0px 5px 6px rgba(0, 0, 0, 0.3);
-  --swiper-pagination-h-value:rgba(13, 68, 119, 0.19);
-  --swiper-pagination-s-value:rgba(13, 68, 119, 0.89);
+  --swiper-pagination-s-value:rgba(219, 230, 245, 0.29);
+  --swiper-pagination-h-value:rgba(16, 130, 236, 0.89);
 }
 html,
 .anim_swiper .body {
@@ -27,7 +27,8 @@ html,
 
 .anim_swiper .swiper-slide {
   font-size: 14px;
-  color: #080101;
+  color: #ffffff;
+  
   align-items: flex-start;
   justify-content: flex-start;
   -webkit-box-sizing: border-box;

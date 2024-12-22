@@ -1,8 +1,9 @@
 :root {
   --box-shadow-value: 0px 0px 5px 16px rgba(187, 186, 186, 0.1);
-  --swiper-pagination-h-value:rgba(13, 68, 119, 0.19);
-  --swiper-pagination-s-value:rgba(13, 68, 119, 0.89);
+  --swiper-pagination-h-value: rgba(13, 68, 119, 0.19);
+  --swiper-pagination-s-value: rgba(13, 68, 119, 0.89);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -67,6 +68,7 @@ body {
   font-weight: 400;
   z-index: 1;
 }
+
 .product-txet .dis_text {
   margin-top: 10px;
   font-size: 20px;
@@ -76,6 +78,7 @@ body {
   text-align: center;
   z-index: 1;
 }
+
 .product-txet .dis_text_a {
   padding: 12px 0 0 0;
   font-size: 16px;
@@ -86,6 +89,7 @@ body {
   text-align: justify;
   z-index: 1;
 }
+
 .product-swiper {
   justify-self: flex-end;
   border-radius: 1px;
@@ -124,16 +128,41 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* تغییر از center به flex-start */
 }
 
 .animat_pro_new .swiper-slide img {
-  padding-bottom: 5;
   top: 0 !important;
   display: block;
-  width: 280px;
-  height: 240px;
-  object-fit: cover;
+  width: 100%; /* تنظیم عرض تصاویر به 100% */
+  height: 250px; /* تنظیم ارتفاع تصاویر به 80% */
+  object-fit: cover; /* استفاده از object-fit */
+  object-position: top; /* اطمینان از چسبیدن تصاویر به بالاترین قسمت */
+}
+
+.animat_pro_new .slide-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.animat_pro_new .slide-content h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.animat_pro_new .slide-content h4 .span_header_t,
+.animat_pro_new .slide-content h4 .span_type {
+  font-weight: bold;
+}
+
+.animat_pro_new .slide-content a {
+  color: #0d4477;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.animat_pro_new .slide-content a:hover {
+  color: #072b50;
 }
 
 .animat_pro_new p {
@@ -142,10 +171,6 @@ body {
   line-height: 1.5;
   text-align: justify;
   font-weight: 400;
-}
-
-.animat_pro_new h4 {
-  padding: 1px;
 }
 
 .animat_pro_new .swiper-pagination-bullet {
@@ -177,6 +202,7 @@ body {
   transform: translateY(-50%);
   z-index: 10;
 }
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .product-txet .header_text {
     padding: 6px 0 0 0;
@@ -186,6 +212,7 @@ body {
     font-weight: 400;
     z-index: 1;
   }
+
   .product-txet .dis_text {
     height: auto;
     font-size: 18px;
@@ -207,8 +234,8 @@ body {
     text-align: center;
     text-align: justify;
   }
-
 }
+
 @media (max-width: 768px) {
   .product {
     flex-direction: column;
@@ -217,8 +244,7 @@ body {
     height: auto;
   }
 
-  .product-txet,
-  .product-swiper {
+  .product-txet, .product-swiper {
     height: auto;
     width: 95vw;
     margin-bottom: 20px;
@@ -239,6 +265,7 @@ body {
     font-weight: 300;
     z-index: 1;
   }
+
   .product-txet .dis_text {
     height: auto;
     font-size: 16px;
@@ -257,6 +284,5 @@ body {
     line-height: 1.2;
     font-size: 14px;
     font-weight: 400;
-   
   }
 }
