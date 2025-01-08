@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecureAdmin</title>
+    <link rel="stylesheet" href="./SecureAdmin.css" />
+  </head>
+  <body class="login-body">
+    <div class="login-container">
+      <div class="login wrap">
+        <div class="h11">ورود به صفحه مدیریت</div>
+        <form id="loginForm">
+          <input
+            pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+            placeholder="Email"
+            id="email"
+            name="email"
+            type="text"
+            required
+          />
+          <input
+            placeholder="Password"
+            id="password"
+            name="password"
+            type="password"
+            required
+          />
+          <input value="Login" class="btn" type="submit" />
+        </form>
+        <div
+          id="error-message"
+          style="color: rgb(247, 115, 115); display: none"
+        >
+          نام کاربری یا گذرواژه نادرست است.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          // مقادیر ثابت برای نام کاربری و گذرواژه صحیح
+          const correctEmail = "admin@gmail.com";
+          const correctPassword = "password";
+
+          if (email === correctEmail && password === correctPassword) {
+            localStorage.setItem("authenticated", "true");
+            console.log("Authenticated, redirecting to dashboard...");
+            window.location.href =
+              "./dashboard.html"; // مسیر مطلق } else {
+            document.getElementById("error-message").style.display = "block"; // نمایش پیام خطا
+            console.log("نام کاربری یا گذرواژه نادرست است.");
+          }
+        });
+    </script>
+  </body>
+</html>

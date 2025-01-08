@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureAdmin </title>
+ 
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  
+  <header class="header">
+    <h1>داشبورد مدیریت</h1>
+    <nav>
+      <ul>
+        <li><a href="#">تماس با ما</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="/">خانه</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="sid_main">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#" onclick="loadPage('dashboard_new')">داشبورد</a></li>
+          <li><a href="#" onclick="loadPage('content')">مدیریت محتوا</a></li>
+          <li><a href="#" onclick="loadPage('images')">مدیریت تصاویر</a></li>
+          <li><a href="#" onclick="loadPage('products')">مدیریت محصولات</a></li>
+          <li><a href="#" onclick="logout()">خروج</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="current_state" id="current_state">
+
+    
+    </div>
+  </div>
+
+
+  <main class="main-content" id="main-content">
+    <h2>خوش آمدید به داشبورد مدیریت</h2>
+    <p>اینجا شما می‌توانید تمامی امور مدیریتی را انجام دهید.</p>
+    <button id="testBtn" class="button">تست</button>
+  </main>
+
+ 
+  <footer class="footer">
+    <p>&copy; 2025 داشبورد مدیریت. تمامی حقوق محفوظ است.</p>
+  </footer>
+
+  <script>
+    // بررسی اعتبار سنجی کاربر
+    if (localStorage.getItem("authenticated") !== "true") {
+      console.log('User not authenticated, redirecting to login...');
+      window.location.href = "SecureAdmin.html"; // هدایت به صفحه ورود در صورت عدم اعتبار سنجی
+    }
+
+    // اضافه کردن قابلیت خروج
+    function logout() {
+      localStorage.removeItem("authenticated"); // حذف اعتبار سنجی
+      window.location.href = "/Menu/SecureAdmin.html"; // هدایت به صفحه ورود
+    }
+
+    // بارگذاری محتوای پویا
+
+    function loadPage(page) {
+  fetch(`${page}.html`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(data => {
+      console.log("Fetched data:", data); // پیام دیباگ
+      const currentStateElement = document.getElementById('current_state');
+      if (currentStateElement) {
+        currentStateElement.innerHTML = data;
+        const scripts = document.querySelectorAll('#current_state script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          newScript.type = 'module';
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.innerHTML = script.innerHTML;
+          }
+          document.body.appendChild(newScript);
+        });
+      } else {
+        console.error("Element with ID 'current_state' not found in DOM");
+      }
+    })
+    .catch(error => console.error('Error loading page:', error));
+}
+
+
+    // بارگذاری اولیه داشبورد
+    loadPage('dashboard_new');
+
+    // جاوا اسکریپت برای مدیریت دکمه تست
+    document.addEventListener("DOMContentLoaded", function() {
+      const testBtn = document.getElementById("testBtn");
+      testBtn.addEventListener("click", function() {
+        console.log("Test button clicked");
+      });
+    });
+  </script>
+</body>
+</html>

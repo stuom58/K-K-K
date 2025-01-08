@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>new 3k</title>
+    <title>new 33k</title>
     <link rel="icon" href="https://example.com/favicon.ico" />
 
-    <!-- استایل‌های اسوایپر -->
     <link rel="stylesheet" href="./swiper.css" />
     <link rel="stylesheet" href="./animat_pro_ast.css" />
-    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="./footer-style.css" />
+    <link rel="stylesheet" href="./Animat_AOS.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div id="navbar-container"></div>
@@ -21,70 +21,10 @@
       >
         <div
           class="parallax-bg"
-          style="background-image: url(./p4.webp)"
+          style="background-image: url(p4.webp)"
           data-swiper-parallax="25%"
         ></div>
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="title" data-swiper-parallax="-300">
-              ارائه‌ی راهکارهای پیشرفته صنعتی
-            </div>
-            <div class="subtitle" data-swiper-parallax="-200">
-              تأمین و مونتاژ بردهای الکترونیکی
-            </div>
-            <div class="text" data-swiper-parallax="-100">
-              <p class="p_text">
-                کسب‌وکار ما متعهد به تهیه انواع برد و درایورهای پیشرفته است که
-                به عنوان قلب تپنده‌ی ماشین‌های صنعتی بزرگ عمل می‌کنند. از تولید
-                و مونتاژ بردهای الکترونیکی با دقت بالا گرفته تا ارائه‌ی
-                راهکارهای بهینه برای کنترل و راه‌اندازی ماشین‌آلات صنعتی، همواره
-                در تلاشیم تا با بهره‌گیری از فناوری‌های نوین، بهترین خدمات را به
-                مشتریان خود ارائه دهیم. تعهد ما به کیفیت و نوآوری، باعث شده است
-                تا محصولات ما در صنایع مختلفی از جمله کارخانجات، و تولیدات سنگین
-                مورد استفاده قرار گیرد.
-              </p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="title" data-swiper-parallax="-300">
-              نوآوری در تجهیزات پزشکی
-            </div>
-            <div class="subtitle" data-swiper-parallax="-200">
-              تأمین قطعات الکترونیکی پزشکی
-            </div>
-            <div class="text" data-swiper-parallax="-100">
-              <p class="p_text">
-                ما در زمینه تأمین قطعات الکترونیکی برای بردهای پزشکی نیز فعالیت
-                داریم. هدف ما این است که با ارائه‌ی محصولاتی با کیفیت بالا و
-                استانداردهای جهانی، نقش مهمی در پیشرفت تجهیزات پزشکی ایفا کنیم.
-                از طراحی و تولید بردهای کنترلی پیچیده تا تهیه قطعات حساس مورد
-                نیاز برای دستگاه‌های پزشکی، تمامی تلاش خود را به کار می‌گیریم تا
-                بهبود سلامت و رفاه جامعه را تضمین کنیم. همکاری نزدیک ما با مراکز
-                تحقیقاتی و تولیدکنندگان بزرگ در این صنعت، ما را به یکی از
-                پیشتازان این حوزه تبدیل کرده است.
-              </p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="title" data-swiper-parallax="-300">
-              پیشرفت و نوآوری مداوم
-            </div>
-            <div class="subtitle" data-swiper-parallax="-200">
-              خدمات سفارشی و پشتیبانی فنی
-            </div>
-            <div class="text" data-swiper-parallax="-100">
-              <p class="p_text">
-                با تکیه بر تیمی متخصص و با تجربه در زمینه‌ی الکترونیک و مهندسی،
-                ما همواره در تلاشیم تا نوآوری و پیشرفت را در صنعت به ارمغان
-                آوریم. ارائه‌ی راه‌حل‌های سفارشی برای نیازهای خاص هر مشتری، یکی
-                از اصول اصلی ماست. از خدمات پس از فروش و پشتیبانی فنی تا
-                آموزش‌های تخصصی برای کاربران، تمامی جنبه‌های کسب‌وکار ما بر محور
-                رضایت و موفقیت مشتریان بنا شده است. ما با افتخار به عنوان یک
-                شریک قابل اعتماد در مسیر توسعه و رشد کسب‌وکارها همراه شما هستیم.
-              </p>
-            </div>
-          </div>
-        </div>
+        <div class="swiper-wrapper" id="swiper-wrapper"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
@@ -97,12 +37,27 @@
         width="100%"
       ></object>
     </div>
+
+
+    <div class="main_aos">
+  
+    <div class="container">
+      <div class="row" id="aos-container">
+        <!-- باکس‌ها به صورت پویا اینجا اضافه می‌شوند -->
+      </div>
+    </div>
+    <h3>بعضی از مشریان محترم ما</h3>
+</div>
+
     <div id="footer-container"></div>
 
     <script src="./swiper.js"></script>
+    <script type="module" src="./Animat_AOS_sc.js"></script>
+    <script src="./Animat_AOS.js"></script>
     <script src="./anim_swiper.js"></script>
     <script src="./load-footer.js"></script>
     <script src="./load-topbar.js"></script>
     <script src="./load-navbar.js"></script>
+    <script src="./dashboard.html"></script>
   </body>
 </html>

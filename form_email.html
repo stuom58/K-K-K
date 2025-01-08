@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرم ثبت</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./footer-style.css">
+  <link rel="stylesheet" href="./form_email.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@latest/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("BkksuBHwOzEXpKEoV"); // استفاده از کلید عمومی خود
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+
+  <h1>فرم تماس</h1>
+  <form id="contact-form" enctype="multipart/form-data">
+    <!-- بخش اول -->
+    <fieldset>
+      <legend>اطلاعات شخصی</legend>
+      <div class="input_g_p1">
+        <div class="input-group">
+          <label for="firstName">نام:</label>
+          <input type="text" name="firstName" id="firstName" class="short" required>
+        </div>
+        <div class="input-group">
+          <label for="lastName">نام خانوادگی:</label>
+          <input type="text" name="lastName" id="lastName" class="short" required>
+        </div>
+      </div>
+      <div class="input_g_p1">
+        <div class="input-group">
+          <label for="company">شرکت:</label>
+          <input type="text" name="company" id="company" class="short" required>
+        </div>
+        <div class="input-group">
+          <label for="position">سمت در شرکت:</label>
+          <input type="text" name="position" id="position" class="short" required>
+        </div>
+      </div>
+      <div class="input_g_p1">
+        <div class="input-group">
+          <label for="mobile">شماره موبایل:</label>
+          <input type="text" name="mobile" id="mobile" class="short" required>
+        </div>
+        <div class="input-group">
+          <label for="phone">شماره تلفن:</label>
+          <input type="text" name="phone" id="phone" class="short" required>
+        </div>
+      </div>
+    </fieldset>
+    <br>
+    <!-- بخش دوم -->
+    <fieldset>
+      <legend>اطلاعات قطعه معیوب</legend>
+      <div class="input_g_p1">
+        <div class="input-group">
+          <label for="partName">نام قطعه معیوب:</label>
+          <input type="text" name="partName" id="partName" class="short" required>
+        </div>
+        <div class="input-group">
+          <label for="partSerial">شماره سریال قطعه معیوب:</label>
+          <input type="text" name="partSerial" id="partSerial" class="short" required>
+        </div>
+      </div>
+      <div class="input_g_p1">
+        <div class="input-group">
+          <label for="machineName">نام دستگاه یا ماشین صنعتی:</label>
+          <input type="text" name="machineName" id="machineName" class="short" required>
+        </div>
+        <div class="input-group">
+          <label for="machineSerial">شماره سریال دستگاه یا ماشین صنعتی:</label>
+          <input type="text" name="machineSerial" id="machineSerial" class="short" required>
+        </div>
+      </div>
+      <div class="full-width-group">
+        <label for="faultReason">دلیل خرابی:</label>
+        <input type="text" name="faultReason" id="faultReason" class="short full-width" required>
+      </div>
+      <div class="full-width-group">
+        <label for="faultStatus">وضعیت علایم دستگاه در حالت خرابی:</label>
+        <input type="text" name="faultStatus" id="faultStatus" required>
+      </div>
+      <div class="full-width-group">
+        <label for="description">توضیحات:</label>
+        <textarea name="description" id="description" required></textarea>
+      </div>
+      <div class="full-width-group">
+        <label for="file">آپلود عکس قطعه معیوب و دستگاه:</label>
+        <input type="file" name="file[]" id="file" multiple required>
+      </div>
+      <div class="button-container">
+        <button type="submit">ارسال</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <div id="footer-container"></div>
+
+  <script type="text/javascript">
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // جلوگیری از ارسال فرم به روش قدیمی
+
+      var form = document.getElementById('contact-form');
+      var formData = new FormData(form);
+
+      var templateParams = {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        company: formData.get('company'),
+        position: formData.get('position'),
+        mobile: formData.get('mobile'),
+        phone: formData.get('phone'),
+        partName: formData.get('partName'),
+        partSerial: formData.get('partSerial'),
+        machineName: formData.get('machineName'),
+        machineSerial: formData.get('machineSerial'),
+        faultReason: formData.get('faultReason'),
+        faultStatus: formData.get('faultStatus'),
+        description: formData.get('description'),
+        attachments: []
+      };
+
+      var files = formData.getAll('file[]');
+      var readers = [];
+
+      files.forEach(function(file, index) {
+        var reader = new FileReader();
+        readers.push(reader);
+        reader.onload = function(event) {
+          templateParams.attachments.push({
+            content: event.target.result.split(',')[1],
+            filename: file.name,
+            type: file.type,
+            disposition: "attachment"
+          });
+
+          if (index === files.length - 1) {
+            emailjs.send('service_lewjaik', 'template_9hjaa3l', templateParams, 'BkksuBHwOzEXpKEoV')
+              .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('پیام با موفقیت ارسال شد!');
+              }, function(error) {
+                console.log('FAILED...', error);
+                alert('ارسال پیام با مشکل مواجه شد: ' + error.text);
+              });
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+
+  <script src="./load-footer.js"></script>
+  <script src="./load-topbar.js"></script>
+  <script src="./load-navbar.js"></script>
+</body>
+</html>

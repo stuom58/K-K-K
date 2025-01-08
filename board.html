@@ -4,23 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> برد ها</title>
-    <link rel="stylesheet" href="./styles.css"> <!-- اصلاح مسیر -->
-    <link rel="stylesheet" href="./footer-style.css"/>
+    <link rel="stylesheet" href="./ swiper.css" />
+    <link rel="stylesheet" href=" ./animat_pro_ast.css" />
+    <link rel="stylesheet" href=" ./footer-style.css"/>
+    <link rel="stylesheet" href=" styles.css" />
 </head>
 <body>
     <div id="navbar-container"></div>  
 
-    <br><br><br><br><br><br><br><br><br><br>
-    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; در این صفحه اطلاعات مربوط به برد ها قرار میکیرد
-    </h1>
-    <br><br><br><br><br><br><br><br><br><br>
-    <div id="footer-container"></div> 
+    <!-- فراخوانی اسوایپر با استفاده از عنصر ابجکت -->
+    <div class="animat_pro_new">
+      <object
+        data=" load_Produce.html?type=برد الکترونیکی"
+        class="custom-object"
+        width="100%"
+        height="100%"
+      ></object>
+    </div>
 
+    <h2 class="product_box_header">برد قابل ارائه به مشتریان عزیز</h2>
 
-    <script src="./load-footer.js"></script>
-    <script src="./load-topbar.js"></script>
-    <script src="./load-navbar.js"></script> <!-- اصلاح مسیر -->
+    <div id="related-products" class="product-grid"></div>
 
-    
+    <div id="footer-container"></div>
+    <script type="module">
+      import { loadProducts } from "./products_box.js";
+
+      document.addEventListener("DOMContentLoaded", async function() {
+          await loadProducts('related-products', 'برد الکترونیکی'); // یا هر دسته‌بندی دیگری که مد نظرتان است
+}); </script>
+    <script src="  ./load-footer.js"></script>
+    <script src="  ./load-topbar.js"></script>
+    <script src="  ./load-navbar.js"></script> <!-- اصلاح مسیر -->
 </body>
 </html>

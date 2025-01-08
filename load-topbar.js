@@ -3,5 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.text())
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data); // افزودن نوار بالا به ابتدای بدنه
-        });
+        })
+        .catch(error => console.error('Error loading topbar:', error));
 });

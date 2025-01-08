@@ -1,39 +1,97 @@
-/* Footer.css */
+:root {
+  --main_color_d1: #003C43;
+  --main_color_d2: #135D66;
+  --main_color_d3: #77B0AA;
+  --main_color_d4: #E3FEF7;
+  --box-shadow-value: 0px 0px 5px 5px rgba(187, 186, 186, 0.2);
+}
+
+.social-capsule-container {
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  padding: 0 0; /* فاصله بالای صفحه */
+}
+
+.social-capsule {
+  width: 220px;
+  position: relative;
+  top: 32px;
+  margin: 0 auto; /* وسط‌چین کردن باکس */
+  background-color: var(--main_color_d4);
+  border-radius: 25px;
+  padding: 10px 20px;
+  box-shadow: var(--box-shadow-value);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+.social-capsule a{
+height: 30px;
+}
+
+.social-icon {
+  margin: 0;
+}
+
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover img {
+  transform: scale(1.2); /* انیمیشن بزرگنمایی در هنگام هاور */
+}
 
 .footer {
-  background-color: #66b4e0;
+  background-color: var(--main_color_d2);
   text-align: center;
   width: 100%;
   margin: 0 auto; /* برای مرکزیت قرار دادن فوتر */
-  padding: 20px 0; /* تنظیم فاصله داخلی فوتر */
+  padding: 0; /* تنظیم فاصله داخلی فوتر */
 }
-
 
 .footer .row {
   display: flex;
   justify-content: space-between;
-  align-items:center;
-  /* max-width: 33%; */
+  align-items: center;
 }
 
 .footer .col {
   flex: 1;
-  /* سایر استایل‌های ستون‌ها */
+  max-width: 33vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--main_color_d4);
+  text-align: justify;
+  margin: 0 auto;
 }
 
 #call {
-  border-right: 3px solid black;
+  border-right: 3px solid var(--main_color_d3);
 }
 
 .footer h3 {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .footer p {
+  width: 300px;
+  margin: 0 20px;
+  line-height: 2;
   
-  margin-bottom: 10px;
-  /* max-width: 420px; */
+  /* margin-bottom: 10px; */
+}
+#call p {
+ text-align: center;
 }
 
 .footer ul {
@@ -42,16 +100,18 @@
 }
 
 .footer a {
-  color: #041d1d;
+  color: var(--main_color_d4);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #ffffff;
+  color: var(--main_color_d1);
 }
 
 .footer .copyright {
+  background-color: var(--main_color_d1);
+  color: var(--main_color_d3);
   display: flex;
   width: 100%;
   justify-content: center;
@@ -60,27 +120,31 @@
 
 /* استایل برای دسکتاپ */
 @media (min-width: 1200px) {
-  /* استایل‌های مخصوص دسکتاپ */
   .footer .col {
-    width: 33.33%vh; /* هر ستون یک سوم عرض را اشغال می‌کند */
+    width: 33.33%; /* هر ستون یک سوم عرض را اشغال می‌کند */
   }
 }
 
 /* استایل برای تبلت */
 @media (min-width: 768px) and (max-width: 1199px) {
-  /* استایل‌های مخصوص تبلت */
   .footer .col {
-    width: 50%vh; /* هر ستون نیمی از عرض را اشغال می‌کند */
+    width: 50%; /* هر ستون نیمی از عرض را اشغال می‌کند */
   }
 }
 
 /* استایل برای موبایل */
 @media (max-width: 767px) {
-  /* استایل‌های مخصوص موبایل */
   .footer .row {
     flex-direction: column;
   }
   .footer .col {
     width: 100%;
+  }
+  .footer h3 {
+    margin-top: 40px;
+  }
+  .social-capsule {
+    width: 250px;
+    margin: 0 auto; /* وسط‌چین کردن باکس در موبایل */
   }
 }

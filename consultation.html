@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاوره</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href=" footer-style.css">
+</head>
+<body>
+    <div id="topbar-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- اضافه کردن مکان برای باکس محصولات -->
+
+        
+   <h2 class="product_box_header">محصولات قابل ارائه به مشتریان عزیز</h2>
+
+   <div id="related-products" class="product-grid"></div>
+
+    
+
+    <div id="footer-container"></div>
+
+    <script src=" load-topbar.js"></script>
+    <script src=" load-navbar.js"></script>
+    <script src=" load-footer.js"></script>
+    <!-- وارد کردن ماژول جاوااسکریپت -->
+    <script type="module">
+        import { loadProducts } from "products_box.js";
+
+        document.addEventListener("DOMContentLoaded", async function() {
+            // بارگذاری محصولات مرتبط
+            await loadProducts('related-products');
+        });
+    </script>
+</body>
+</html>

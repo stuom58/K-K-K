@@ -1,0 +1,167 @@
+:root {
+  --main_color_d1: #003C43;
+  --main_color_d2: #135D66;
+  --main_color_d3: #77B0AA;
+  --main_color_d4: #E3FEF7;
+  --box-shadow-value: 0px 0px 5px 16px rgba(227, 254, 247, 0.1);
+  --background-color: var(--main_color_d4);
+  --text-color: var(--main_color_d1);
+}
+
+body {
+  background: var(--main_color_d1);
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: var(--main_color_d1);
+  margin: 0;
+  /* padding: 20px; */
+}
+
+h1 {
+  color: var(--main_color_d4);
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center; /* متن در وسط صفحه */
+}
+
+form {
+  max-width: 94vw;
+  background: var(--main_color_d2);
+  padding: 20px;
+  border-radius: 1px;
+  box-shadow: var(--box-shadow-value);
+  margin: 0 auto; /* فرم را در مرکز صفحه قرار می‌دهد */
+  overflow: hidden; /* جلوگیری از سرریز فرم */
+}
+
+fieldset {
+  border: 1px solid var(--main_color_d3);
+  /* margin-bottom: 20px; */
+  border-radius: 5px;
+  padding:0 10px;
+}
+
+.input_g_p1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* جهت اطمینان از اینکه فیلدها در یک خط بمانند */
+}
+
+.input_g_p1 .input-group {
+  width: 48%; /* تنظیم عرض برای دو ستون */
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* فاصله بین ردیف‌ها */
+}
+
+.full-width-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* فاصله بین ردیف‌ها */
+}
+
+legend {
+  padding: 0 10px;
+  font-weight: bold;
+  color: var(--main_color_d4);
+}
+
+label {
+  display: inline-block; /* تغییر از block به inline-block */
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 150px; /* عرض ثابت برای لیبل‌ها برای جلوگیری از شکستن */
+  color: var(--main_color_d4); /* رنگ لیبل‌ها */
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+input[type="file"] {
+  width: calc(100% - 160px); /* تنظیم عرض اینپوت برای قرارگیری کنار لیبل */
+  padding: 10px;
+  /* border: 1px solid #ad0d0d; */
+  background-color: var(--main_color_d4);
+  border-radius: 5px;
+  box-sizing: border-box;
+  min-width: 200px; /* حداقل عرض اینپوت‌ها */
+}
+
+textarea,
+input[type="file"] {
+  height: auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+button {
+  background: var(--main_color_d4);
+  color: var(--main_color_d2);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: block; /* تنظیم display به block */
+  margin: 0 auto; /* وسط‌چین کردن دکمه با استفاده از margin */
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+
+
+button[type="submit"]:hover {
+  background: var(--main_color_d2);
+}
+
+.button-container {
+  text-align: center; /* وسط‌چین کردن محتوای داخل این div */
+  margin-top: 20px; /* فاصله از بالای صفحه */
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) { /* تبلت */
+  .input_g_p1 .input-group {
+    width: 100%; /* تمام عرض برای تبلت */
+  }
+
+  label {
+    width: 100%; /* تمام عرض برای لیبل‌ها */
+    margin-left: 0; /* بدون فاصله اضافی */
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  input[type="file"] {
+    background-color: var(--main_color_d2);
+    width: 100%; /* تمام عرض برای اینپوت‌ها */
+    margin-bottom: 10px; /* فاصله بین اینپوت‌ها */
+  }
+}
+
+@media (max-width: 480px) { /* موبایل */
+  .input_g_p1 .input-group {
+    width: 100%; /* تمام عرض برای موبایل */
+  }
+
+  label {
+    width: 100%; /* تمام عرض برای لیبل‌ها */
+    margin-left: 0; /* بدون فاصله اضافی */
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  input[type="file"] {
+    width: 100%; /* تمام عرض برای اینپوت‌ها */
+    margin-bottom: 10px; /* فاصله بین اینپوت‌ها */
+  }
+
+  button[type="submit"] {
+    width: 100%; /* تمام عرض برای دکمه ارسال */
+  }
+}
