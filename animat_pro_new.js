@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const swiper = new Swiper(".mySwiper2", {
      pagination: {
-        el: ".swiper-pagination",
+        el: ".swiper-pagination-new",
         dynamicBullets: true,
         clickable: true
       },
