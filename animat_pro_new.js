@@ -85,9 +85,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     createSwiperSlides(filteredSlides); // ایجاد اسلایدها
 
     const swiper = new Swiper(".mySwiper2", {
-      pagination: {
-        el: ".swiper-pagination_new",
-        clickable: true,
+     pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        clickable: true
       },
       navigation: {
         nextEl: ".swiper-button-next",
