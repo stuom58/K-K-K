@@ -191,7 +191,7 @@ body {
   background-color: var(--swiper-pagination-h-value);
 }
 
-.animat_pro_new .swiper-pagination_new {
+.animat_pro_new .swiper-pagination {
   position: absolute;
   bottom: 10px;
   text-align: center;
