@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               <h4><span class="span_type"> نوع  : </span><a href="${slide.link_type}" target="_top">${slide.type}</a></h4>      
             </div>
             <div class="shoping_icon">
-              <a href="/Menu/pages/form_email.html" target="_top">
+              <a href="./form_email.html" target="_top">
                 <img src="buy-now (4).png" alt="Buy Now">
               </a>
             </div>
