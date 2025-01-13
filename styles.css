@@ -37,7 +37,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: relative; /* برای تنظیم موقعیت وسط */
-  height: 50px;
+  height: 60px;
   z-index: 1000;
 }
 
@@ -70,8 +70,9 @@ body {
 }
 
 .logo img {
-  width: auto; /* تنظیم اندازه لوگو */
-  height: auto;
+   width: 70px !important; /* تنظیم اندازه لوگو */
+  height: 60px !important;
+  object-fit: cover;
 }
 
 .contact img,
