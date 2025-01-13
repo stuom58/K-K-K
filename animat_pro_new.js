@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <div class="shoping_icon">
               <a href="/Menu/pages/form_email.html" target="_top">
-                <img src="./../../photo/icon/buy-now (4).png" alt="Buy Now">
+                <img src="buy-now (4).png" alt="Buy Now">
               </a>
             </div>
           </div>
