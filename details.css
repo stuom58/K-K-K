@@ -6,12 +6,22 @@
   --box-shadow-value: 0px 0px 5px 16px rgba(187, 186, 186, 0.1);
 }
 
+@font-face {
+  font-family: Vazir;
+  src: url('Vazir-Regular.eot');
+  src: url('Vazir-Regular.eot?#iefix') format('embedded-opentype'),
+       url('Vazir-Regular-FD.woff2') format('woff2'),
+       url('Vazir-Regular-FD.woff') format('woff'),
+       url('Vazir-Thin-FD.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background: var(--main_color_d1);
-  font-family: Arial, sans-serif;
+  font-family:Vazir, Arial, sans-serif;
   color: var(--main_color_d4);
   margin: 0;
-  /* padding: 20px; */
   direction: rtl;
 }
 
@@ -22,20 +32,19 @@ body {
 h1 {
   color: var(--main_color_d4);
   font-size: 24px;
-  margin: 20px 20px 0 0;
+  margin: 10px 20px 0 0;
   text-align: start;
 }
 
 .product-container {
   display: flex;
-  flex-direction: row; /* جهت‌دهی عمودی */
+  flex-direction: row;
   direction: ltr;
-  /* align-items: center; */
+  width: 95vw;
   margin: 0 auto;
-  /* max-width: 95vw; */
- height: 400px;
-  background: var(--main_color_d2);
-  padding: 20px;
+  height: 450px;
+  background: var(--main_color_d1);
+  /* padding: 20px; */
   border-radius: 1px;
   box-shadow: var(--box-shadow-value);
 }
@@ -43,31 +52,34 @@ h1 {
 .product-img {
   flex: 1;
   text-align: center;
-  /* margin-bottom: 20px; */
 }
 
 .product-img img {
   width: 40vw;
   height: 100%;
-  padding:5px 30px 5px 10px;
+  border-radius: 5px;
+
 }
 
 .product-info {
   direction: rtl;
   width: 55vw;
- 
-  text-align: right; /* چسباندن متن به راست */
+  text-align: right;
+  padding:20px 20px 20px 30px;
 }
 
 .product-header {
+  margin: 0;
   font-size: 20px;
   font-weight: 300;
   color: var(--main_color_d4);
-  margin-bottom: 10px;
+
 }
+
 .product-header span {
   font-size: 22px;
 }
+
 .product-type,
 .product-description,
 .product-full-description {
@@ -76,6 +88,7 @@ h1 {
   line-height: 1.5;
   color: var(--main_color_d4);
 }
+
 .product-type span,
 .product-description span,
 .product-full-description span {
@@ -83,40 +96,55 @@ h1 {
   font-size: 18px;
 }
 
-
-
 /* حالت واکنش‌گرا برای تبلت */
 @media (max-width: 768px) {
-
-    .product-container {
-        display: flex;
-        flex-direction: column; /* جهت‌دهی عمودی */
-        direction: ltr;
-      
-      }
-
-  .product-info {
-    width: 90vw;
-    padding: 0;
-    text-align: justify;
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: auto;
+    padding: 20px 10px;
   }
+
+  .product-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .product-img img {
-    width: 90vw;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     padding: 10px;
   }
 
+  .product-info {
+    width: 100%;
+    padding: 10px;
+    text-align: right;
+  }
 
-} /* حالت واکنش‌گرا برای موبایل */
+  .product-header,
+  .product-type,
+  .product-description,
+  .product-full-description {
+    padding: 0 10px;
+  }
+}
+
+/* حالت واکنش‌گرا برای موبایل */
 @media (max-width: 480px) {
   .product-info {
-    max-width: 90vw;
-    padding: 0;
+    width: 100%;
+    padding: 10px;
     margin: 0;
-    text-align: center;
+    text-align: right;
   }
+
   .product-img img {
-    width: 90vw;
+    width: 100%;
     height: auto;
   }
 }

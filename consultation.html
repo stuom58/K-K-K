@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مشاوره</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href=" footer-style.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/footer-style.css">
 </head>
 <body>
     <div id="topbar-container"></div>
@@ -22,12 +22,12 @@
 
     <div id="footer-container"></div>
 
-    <script src=" load-topbar.js"></script>
-    <script src=" load-navbar.js"></script>
-    <script src=" load-footer.js"></script>
+    <script src="/load-topbar.js"></script>
+    <script src="/load-navbar.js"></script>
+    <script src="/load-footer.js"></script>
     <!-- وارد کردن ماژول جاوااسکریپت -->
     <script type="module">
-        import { loadProducts } from "products_box.js";
+        import { loadProducts } from "./Menu/pages/products_box.js";
 
         document.addEventListener("DOMContentLoaded", async function() {
             // بارگذاری محصولات مرتبط

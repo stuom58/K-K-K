@@ -4,21 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>فرم ثبت</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="./footer-style.css">
-  <link rel="stylesheet" href="./form_email.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@latest/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function(){
-      emailjs.init("BkksuBHwOzEXpKEoV"); // استفاده از کلید عمومی خود
-    })();
-  </script>
+  <link rel="stylesheet" href="/footer-style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href=" /form_email.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
   <div id="navbar-container"></div>
 
-  <h1>فرم تماس</h1>
+  <h1>فرم سفارش خرید درخواست مشاوره فنی </h1>
   <form id="contact-form" enctype="multipart/form-data">
     <!-- بخش اول -->
     <fieldset>
@@ -90,9 +85,19 @@
         <label for="description">توضیحات:</label>
         <textarea name="description" id="description" required></textarea>
       </div>
+      <!-- لینک‌های ارسال ایمیل و تلگرام -->
       <div class="full-width-group">
-        <label for="file">آپلود عکس قطعه معیوب و دستگاه:</label>
-        <input type="file" name="file[]" id="file" multiple required>
+        <label class="label_send_img">ارسال عکسهای دستگاه و قطعه معیوب از طریق:</label>
+        <div class="social-links">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nasri@gmail.com&su=ارسال عکس فرم&body=لطفاً عکسها و اطلاعات خود را ارسال کنید." class="social-link" target="_blank">
+            <img src="/email1.png" alt="ارسال ایمیل">
+             ایمیل
+          </a>
+          <a href="https://t.me/yourusername" class="social-link" target="_blank">
+            <img src="/telegram_2504941.svg" alt="تلگرام">
+             تلگرام
+          </a>
+        </div>
       </div>
       <div class="button-container">
         <button type="submit">ارسال</button>
@@ -102,62 +107,97 @@
 
   <div id="footer-container"></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@latest/dist/email.min.js"></script>
   <script type="text/javascript">
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // جلوگیری از ارسال فرم به روش قدیمی
+    // تابع تولید کد یکتا
+    function generateUniqueCode() {
+      const now = new Date(); // دریافت تاریخ و زمان فعلی
 
-      var form = document.getElementById('contact-form');
-      var formData = new FormData(form);
+      // استخراج بخش‌های مختلف تاریخ و زمان
+      const year = now.getFullYear().toString().slice(-2); // دو رقم آخر سال (مثلاً 25 برای 2025)
+      const month = String(now.getMonth() + 1).padStart(2, '0'); // ماه (دو رقم)
+      const day = String(now.getDate()).padStart(2, '0'); // روز (دو رقم)
+      const hours = String(now.getHours()).padStart(2, '0'); // ساعت (دو رقم، 24 ساعته)
+      const minutes = String(now.getMinutes()).padStart(2, '0'); // دقیقه (دو رقم)
+      const seconds = String(now.getSeconds()).padStart(2, '0'); // ثانیه (دو رقم)
 
-      var templateParams = {
-        firstName: formData.get('firstName'),
-        lastName: formData.get('lastName'),
-        company: formData.get('company'),
-        position: formData.get('position'),
-        mobile: formData.get('mobile'),
-        phone: formData.get('phone'),
-        partName: formData.get('partName'),
-        partSerial: formData.get('partSerial'),
-        machineName: formData.get('machineName'),
-        machineSerial: formData.get('machineSerial'),
-        faultReason: formData.get('faultReason'),
-        faultStatus: formData.get('faultStatus'),
-        description: formData.get('description'),
-        attachments: []
-      };
+      // ترکیب بخش‌ها به فرمت مورد نظر
+      const uniqueCode = `${year}${month}${day}${hours}${minutes}${seconds}`;
+      return uniqueCode;
+    }
 
-      var files = formData.getAll('file[]');
-      var readers = [];
+    // مقداردهی اولیه EmailJS
+    (function () {
+      emailjs.init("BkksuBHwOzEXpKEoV");
+    })();
 
-      files.forEach(function(file, index) {
-        var reader = new FileReader();
-        readers.push(reader);
-        reader.onload = function(event) {
-          templateParams.attachments.push({
-            content: event.target.result.split(',')[1],
-            filename: file.name,
-            type: file.type,
-            disposition: "attachment"
+    // ارسال فرم
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+  event.preventDefault(); // جلوگیری از ارسال فرم به روش قدیمی
+
+  // تولید کد یکتا
+  const uniqueCode = generateUniqueCode();
+
+  // جمع‌آوری داده‌های فرم
+  const templateParams = {
+    id: uniqueCode, // اضافه کردن کد یکتا
+    mobile: document.getElementById('mobile').value,
+    firstName: document.getElementById('firstName').value,
+    lastName: document.getElementById('lastName').value,
+    company: document.getElementById('company').value,
+    position: document.getElementById('position').value,
+    phone: document.getElementById('phone').value,
+    partName: document.getElementById('partName').value,
+    partSerial: document.getElementById('partSerial').value,
+    machineName: document.getElementById('machineName').value,
+    machineSerial: document.getElementById('machineSerial').value,
+    faultReason: document.getElementById('faultReason').value,
+    faultStatus: document.getElementById('faultStatus').value,
+    description: document.getElementById('description').value
+  };
+
+  // نمایش پنجره تأییدیه
+  Swal.fire({
+    title: 'آیا از ارسال فرم مطمئن هستید؟',
+    text: `کد درخواست شما در مرحله بعد نمایش داده می‌شود و کلیه پیگیری‌ها توسط این کد انجام می‌شود!`,
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'بله، ارسال کن',
+    cancelButtonText: 'لغو'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // ارسال ایمیل با EmailJS
+      emailjs.send('service_lewjaik', 'template_cwar73x', templateParams, 'BkksuBHwOzEXpKEoV')
+        .then(function (response) {
+          console.log('SUCCESS!', response.status, response.text);
+          Swal.fire({
+            icon: 'success',
+            title: 'موفقیت‌آمیز!',
+            text: `پیام با موفقیت ارسال شد! کد درخواست شما: ${uniqueCode}`,
+            confirmButtonText: 'باشه',
+            timer: 20000, // نمایش پیام به مدت 3 ثانیه
+            timerProgressBar: true // نمایش نوار پیشرفت تایمر
+          }).then(() => {
+            // هدایت به صفحه اصلی بعد از بسته شدن پیام
+            window.location.href = '/'; // آدرس صفحه اصلی
           });
-
-          if (index === files.length - 1) {
-            emailjs.send('service_lewjaik', 'template_9hjaa3l', templateParams, 'BkksuBHwOzEXpKEoV')
-              .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                alert('پیام با موفقیت ارسال شد!');
-              }, function(error) {
-                console.log('FAILED...', error);
-                alert('ارسال پیام با مشکل مواجه شد: ' + error.text);
-              });
-          }
-        };
-        reader.readAsDataURL(file);
-      });
-    });
+        }, function (error) {
+          console.log('FAILED...', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'خطا!',
+            text: 'ارسال پیام با مشکل مواجه شد: ' + error.text,
+            confirmButtonText: 'باشه'
+          });
+        });
+    }
+  });
+});
   </script>
 
-  <script src="./load-footer.js"></script>
-  <script src="./load-topbar.js"></script>
-  <script src="./load-navbar.js"></script>
+  <script src="/load-footer.js"></script>
+  <script src="/load-topbar.js"></script>
+  <script src="/load-navbar.js"></script>
 </body>
 </html>

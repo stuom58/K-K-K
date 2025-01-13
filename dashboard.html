@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SecureAdmin </title>
  
-  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="./dashboard.css">
 </head>
 <body>
   
@@ -28,7 +28,7 @@
           <li><a href="#" onclick="loadPage('content')">مدیریت محتوا</a></li>
           <li><a href="#" onclick="loadPage('images')">مدیریت تصاویر</a></li>
           <li><a href="#" onclick="loadPage('products')">مدیریت محصولات</a></li>
-          <li><a href="#" onclick="logout()">خروج</a></li>
+          <li><a href="/" onclick="logout()">خروج</a></li>
         </ul>
       </nav>
     </aside>
@@ -37,8 +37,6 @@
     
     </div>
   </div>
-
-
   <main class="main-content" id="main-content">
     <h2>خوش آمدید به داشبورد مدیریت</h2>
     <p>اینجا شما می‌توانید تمامی امور مدیریتی را انجام دهید.</p>
@@ -60,40 +58,40 @@
     // اضافه کردن قابلیت خروج
     function logout() {
       localStorage.removeItem("authenticated"); // حذف اعتبار سنجی
-      window.location.href = "/Menu/SecureAdmin.html"; // هدایت به صفحه ورود
+      window.location.href = "/SecureAdmin.html"; // هدایت به صفحه ورود
     }
 
     // بارگذاری محتوای پویا
 
     function loadPage(page) {
-  fetch(`${page}.html`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then(data => {
-      console.log("Fetched data:", data); // پیام دیباگ
-      const currentStateElement = document.getElementById('current_state');
-      if (currentStateElement) {
-        currentStateElement.innerHTML = data;
-        const scripts = document.querySelectorAll('#current_state script');
-        scripts.forEach(script => {
-          const newScript = document.createElement('script');
-          newScript.type = 'module';
-          if (script.src) {
-            newScript.src = script.src;
-          } else {
-            newScript.innerHTML = script.innerHTML;
-          }
-          document.body.appendChild(newScript);
-        });
-      } else {
-        console.error("Element with ID 'current_state' not found in DOM");
-      }
-    })
-    .catch(error => console.error('Error loading page:', error));
+      fetch(`./${page}.html`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.text();
+  })
+  .then(data => {
+    console.log("Fetched data:", data); // بررسی داده‌های دریافت شده
+    const currentStateElement = document.getElementById('current_state');
+    if (currentStateElement) {
+      currentStateElement.innerHTML = data;
+      const scripts = currentStateElement.querySelectorAll('script');
+      scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        newScript.type = 'module'; // اگر اسکریپت‌ها از نوع module هستند
+        if (script.src) {
+          newScript.src = script.src;
+        } else {
+          newScript.innerHTML = script.innerHTML;
+        }
+        document.body.appendChild(newScript);
+      });
+    } else {
+      console.error("Element with ID 'current_state' not found in DOM");
+    }
+  })
+  .catch(error => console.error('Error loading page:', error));
 }
 
 

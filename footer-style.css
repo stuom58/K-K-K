@@ -1,8 +1,9 @@
 :root {
-  --main_color_d1: #003C43;
-  --main_color_d2: #135D66;
-  --main_color_d3: #77B0AA;
-  --main_color_d4: #E3FEF7;
+  --main_color_d1: #003c43;
+  --main_color_d2: #135d66;
+  --main_color_d3: #77b0aa;
+  --main_color_d4: #e3fef7;
+  --link_color: #ff6347;
   --box-shadow-value: 0px 0px 5px 5px rgba(187, 186, 186, 0.2);
 }
 
@@ -19,7 +20,7 @@
 .social-capsule {
   width: 220px;
   position: relative;
-  top: 32px;
+  top: 20px;
   margin: 0 auto; /* وسط‌چین کردن باکس */
   background-color: var(--main_color_d4);
   border-radius: 25px;
@@ -30,8 +31,8 @@
   align-items: center;
   z-index: 1000;
 }
-.social-capsule a{
-height: 30px;
+.social-capsule a {
+  height: 30px;
 }
 
 .social-icon {
@@ -52,55 +53,60 @@ height: 30px;
   background-color: var(--main_color_d2);
   text-align: center;
   width: 100%;
-  margin: 0 auto; /* برای مرکزیت قرار دادن فوتر */
+  margin: 0 0; /* برای مرکزیت قرار دادن فوتر */
   padding: 0; /* تنظیم فاصله داخلی فوتر */
 }
 
-.footer .row {
+.footer .row_footer {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 
 .footer .col {
   flex: 1;
-  max-width: 33vw;
+  width: 33.33vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column ;
+  justify-content: center ;
   align-items: center;
   color: var(--main_color_d4);
   text-align: justify;
   margin: 0 auto;
 }
 
-#call {
-  border-right: 3px solid var(--main_color_d3);
+.footer .footer-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer h3 {
+  margin: 50px 0 0 0;
   font-size: 24px;
-  margin-bottom: 10px;
 }
 
 .footer p {
   width: 300px;
   margin: 0 20px;
   line-height: 2;
-  
-  /* margin-bottom: 10px; */
 }
 #call p {
- text-align: center;
+  text-align: center;
 }
 
 .footer ul {
   list-style: none;
   padding: 0;
+  margin: 0 0 10px 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer a {
-  color: var(--main_color_d4);
+  color: var(--link_color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -109,13 +115,22 @@ height: 30px;
   color: var(--main_color_d1);
 }
 
-.footer .copyright {
-  background-color: var(--main_color_d1);
-  color: var(--main_color_d3);
-  display: flex;
+.footer-content {
+  position: relative;
   width: 100%;
+}
+
+.copyright-text{ 
+  width: 100% ;
+  background-color: var(--main_color_d1);
+  color: var(--main_color_d4);
+  display: flex;
   justify-content: center;
   align-items: center;
+
+
+  margin: 0 !important;
+
 }
 
 /* استایل برای دسکتاپ */
@@ -134,7 +149,7 @@ height: 30px;
 
 /* استایل برای موبایل */
 @media (max-width: 767px) {
-  .footer .row {
+  .footer .row_footer {
     flex-direction: column;
   }
   .footer .col {

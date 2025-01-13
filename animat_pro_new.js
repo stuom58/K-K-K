@@ -40,19 +40,31 @@ document.addEventListener("DOMContentLoaded", async function () {
   function createSwiperSlides(slides) {
     const swiperWrapper = document.querySelector(".swiper-wrapper");
     swiperWrapper.innerHTML = ""; // حذف اسلایدهای قبلی
-
+  
     slides.forEach((slide) => {
       const slideElement = document.createElement("div");
       slideElement.className = "swiper-slide";
-
-      // ایجاد لینک با پارامتر ID
+    
       const queryString = `?id=${slide.id}`;
-
+    
       slideElement.innerHTML = `
-        <img src="${slide.img_src}" alt="${slide.header_t}">
+        <div class="swiper_imag">
+          <img src="${slide.img_src}" alt="${slide.header_t}">
+          <div class="overlay"></div> 
+        </div>
+    
         <div class="slide-content">
-          <h4><span class="span_header_t"> نام : </span><a href="${slide.link + queryString}" target="_top">${slide.header_t}</a></h4>
-          <h4><span class="span_type"> دسته بندی : </span><a href="${slide.link_type}" target="_top">${slide.type}</a></h4>
+          <div class="slid_produce">
+            <div class="slid_produce_contact">
+              <h4><span class="span_header_t"> نام : </span><a href="${slide.link + queryString}" target="_top">${slide.header_t}</a></h4>
+              <h4><span class="span_type"> نوع  : </span><a href="${slide.link_type}" target="_top">${slide.type}</a></h4>      
+            </div>
+            <div class="shoping_icon">
+              <a href="/Menu/pages/form_email.html" target="_top">
+                <img src="buy-now (4).png" alt="Buy Now">
+              </a>
+            </div>
+          </div>
           <p>${slide.des}</p>
         </div>
       `;
@@ -86,8 +98,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const swiper = new Swiper(".mySwiper2", {
       pagination: {
-        el: ".swiper-pagination_new",
-        clickable: true,
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        clickable: true
       },
       navigation: {
         nextEl: ".swiper-button-next",

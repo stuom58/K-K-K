@@ -3,6 +3,7 @@
   --main_color_d2: #135D66;
   --main_color_d3: #77B0AA;
   --main_color_d4: #E3FEF7;
+  --link_color: #ff6347;
   --box-shadow-value: 0px 0px 5px 16px rgba(227, 254, 247, 0.1);
   --background-color: var(--main_color_d4);
   --text-color: var(--main_color_d1);
@@ -18,9 +19,9 @@ body {
 
 h1 {
   color: var(--main_color_d4);
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center; /* متن در وسط صفحه */
+  font-size: 22px;
+  margin: 30px;
+  text-align: right; /* متن در وسط صفحه */
 }
 
 form {
@@ -47,7 +48,7 @@ fieldset {
 }
 
 .input_g_p1 .input-group {
-  width: 48%; /* تنظیم عرض برای دو ستون */
+  width: 42%; /* تنظیم عرض برای دو ستون */
   display: flex;
   align-items: center;
   margin-bottom: 10px; /* فاصله بین ردیف‌ها */
@@ -70,15 +71,16 @@ label {
   display: inline-block; /* تغییر از block به inline-block */
   margin-bottom: 5px;
   font-weight: bold;
-  width: 150px; /* عرض ثابت برای لیبل‌ها برای جلوگیری از شکستن */
+  width: 230px; /* عرض ثابت برای لیبل‌ها برای جلوگیری از شکستن */
   color: var(--main_color_d4); /* رنگ لیبل‌ها */
 }
+
 
 input[type="text"],
 input[type="email"],
 textarea,
 input[type="file"] {
-  width: calc(100% - 160px); /* تنظیم عرض اینپوت برای قرارگیری کنار لیبل */
+  width: calc(100% - 230px); /* تنظیم عرض اینپوت برای قرارگیری کنار لیبل */
   padding: 10px;
   /* border: 1px solid #ad0d0d; */
   background-color: var(--main_color_d4);
@@ -111,16 +113,58 @@ button {
   margin-bottom: 20px;
 }
 
-
-
 button[type="submit"]:hover {
-  background: var(--main_color_d2);
+  background: var(--main_color_d4);
 }
 
 .button-container {
   text-align: center; /* وسط‌چین کردن محتوای داخل این div */
   margin-top: 20px; /* فاصله از بالای صفحه */
 }
+
+.social-links {
+  display: flex;
+  gap: 10px; /* فاصله بین لینک‌ها */
+  margin-top: 10px;
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px; /* فاصله بین آیکون و متن */
+  text-decoration: none;
+  color: var(--main_color_d4);
+  background-color: var(--main_color_d2);
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.social-link:hover {
+  background-color: var(--main_color_d3);
+}
+
+.social-link img {
+  width: 40px;
+  height: 40px;
+}
+/* تغییر استایل نوار پیشرفت */
+.swal2-timer-progress-bar {
+  height: 20px; /* ارتفاع نوار پیشرفت */
+
+}
+
+
+/* تغییر رنگ نوار پیشرفت */
+.swal2-timer-progress-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color:var(--link_color); /* رنگ نوار پیشرفت */
+}
+
 
 /* Media Queries for responsive design */
 @media (max-width: 768px) { /* تبلت */
@@ -137,31 +181,11 @@ button[type="submit"]:hover {
   input[type="email"],
   textarea,
   input[type="file"] {
-    background-color: var(--main_color_d2);
+    background-color: var(--main_color_d4);
+    color: var(--main_color_d2);
     width: 100%; /* تمام عرض برای اینپوت‌ها */
     margin-bottom: 10px; /* فاصله بین اینپوت‌ها */
   }
 }
 
-@media (max-width: 480px) { /* موبایل */
-  .input_g_p1 .input-group {
-    width: 100%; /* تمام عرض برای موبایل */
-  }
 
-  label {
-    width: 100%; /* تمام عرض برای لیبل‌ها */
-    margin-left: 0; /* بدون فاصله اضافی */
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea,
-  input[type="file"] {
-    width: 100%; /* تمام عرض برای اینپوت‌ها */
-    margin-bottom: 10px; /* فاصله بین اینپوت‌ها */
-  }
-
-  button[type="submit"] {
-    width: 100%; /* تمام عرض برای دکمه ارسال */
-  }
-}

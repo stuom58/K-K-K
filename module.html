@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> برد ها</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./swiper.css" />
+    <link rel="stylesheet" href="./animat_pro_ast.css" />
+    <link rel="stylesheet" href=" ./footer-style.css"/>
+</head>
+<body>
+    <div id="navbar-container"></div>  
+
+    <!-- فراخوانی اسوایپر با استفاده از عنصر ابجکت -->
+    <div class="animat_pro_new">
+      <object
+        data="/load_Produce.html?type=ماژول های صنعتی"
+        class="custom-object"
+        width="100%"
+        height="100%"
+      ></object>
+    </div>
+
+    <h2 class="product_box_header">ماژول قابل ارائه به مشتریان عزیز</h2>
+
+    <div id="related-products" class="product-grid"></div>
+
+    <div id="footer-container"></div>
+    <script type="module">
+      import { loadProducts } from "./products_box.js";
+
+      document.addEventListener("DOMContentLoaded", async function() {
+          await loadProducts('related-products', 'ماژول های صنعتی'); // یا هر دسته‌بندی دیگری که مد نظرتان است
+}); </script>
+    <script src=" /load-footer.js"></script>
+    <script src=" /load-topbar.js"></script>
+    <script src=" /load-navbar.js"></script> <!-- اصلاح مسیر -->
+</body>
+</html>

@@ -37,7 +37,7 @@ html,
   justify-content: flex-start;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 30px 50px;
+ 
 }
 
 .anim_swiper .parallax-bg {
@@ -52,66 +52,80 @@ html,
 }
 
 .anim_swiper .swiper-slide .title {
-  font-size: 28px;
+  padding: 30px 50px 0 0;
+  font-size: 24px;
   font-weight: 300;
   line-height: 1.5;
 }
 
 .anim_swiper .swiper-slide .subtitle {
+  padding: 10px 50px 0 0;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.5;
 }
 
 .anim_swiper .swiper-slide .p_text {
-  font-size: 29px;
-  line-height: 1.5;
-  font-weight: 400;
-  text-align: justify;
-  padding-top: 6px;
-  margin-top: 0;
+  padding: 10px 50px 0 0;
+
+  /* text-align: justify;
+  padding-top: 60px;
+  margin-top: 0; */
 }
+.anim_swiper .swiper-pagination {
+  width: 100% !important;
+  position: absolute;
+  padding-bottom: 7px;
+ /* text-align: center; */
+  z-index: 10;
+}
+
 
 /* CSS برای پگینیشن مربع و قرار دادن آن در پایین‌ترین قسمت اسوایپر */
 .anim_swiper .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+  width: 20px;
+  height: 10px;
   background-color: var(--swiper-pagination-s-value);
   opacity: 0.8;
-  border-radius: 0; /* حذف حالت دایره‌ای برای مربع شدن */
-  margin: 10px; /* فاصله بیشتر بین پگینیشن‌ها */
+  border-radius: 20px; /* حذف حالت دایره‌ای برای مربع شدن */
+  margin: 10px auto; /* فاصله بیشتر بین پگینیشن‌ها */
+  justify-self: center;
 }
 
 .anim_swiper .swiper-pagination-bullet-active {
   background-color: var(--swiper-pagination-h-value);
 }
 
-.anim_swiper .swiper-pagination {
+.anim_swiper .swiper-button-next,
+.anim_swiper  .swiper-button-prev {
+  --swiper-navigation-size: 30px;
+  color: var(--main_color_d3);
+  display: block;
   position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 10;
 }
+
+
 
 /* مدیا کوئری‌ها برای حالت‌های مختلف */
 /* حالت دسکتاپ */
 @media (min-width: 1025px) {
   .anim_swiper .swiper-slide .title {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 300;
     line-height: 1.5;
   }
 
   .anim_swiper .swiper-slide .subtitle {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 1.5;
   }
 
   .anim_swiper .swiper-slide .p_text {
-    font-size: 15px;
+    font-size: 14px;
     max-width: 40vw;
     line-height: 1.5;
     font-weight: 400;
@@ -124,7 +138,7 @@ html,
 /* حالت تبلت */
 @media (min-width: 769px) and (max-width: 1024px) {
   .anim_swiper .swiper-slide .title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 300;
     line-height: 1.5;
   }
@@ -150,25 +164,39 @@ html,
 @media (max-width: 768px) {
   .anim_swiper .swiper-slide .title {
     font-size: 20px;
-    max-width: 80vw;
+    padding: 10px 30px 0 0;  
     font-weight: 300;
     line-height: 1.5;
   }
 
   .anim_swiper .swiper-slide .subtitle {
     font-size: 17px;
-    max-width: 80vw;
+    padding: 8px 30px 0 0;  
     font-weight: 500;
     line-height: 1.5;
   }
 
   .anim_swiper .swiper-slide .p_text {
     font-size: 14px;
-    max-width: 50vw;
+    padding: 10px 30px 0 180px;  
     line-height: 1.5;
     font-weight: 500;
     text-align: justify;
-    padding-top: 2px;
     margin-top: 0;
   }
+  .anim_swiper .swiper-button-next,
+  .anim_swiper  .swiper-button-prev {
+    --swiper-navigation-size: 20px;
+    color: var(--main_color_d3);
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+
+
+
+
 }

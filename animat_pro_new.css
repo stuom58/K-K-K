@@ -1,8 +1,8 @@
 :root {
-  --main_color_d1: #003c43;
+  --main_color_d1: rgb(0, 60, 67);
   --main_color_d2: #135d66;
   --main_color_d3: #77b0aa;
-  --main_color_d4: #e3fef7;
+  --main_color_d4: rgb(227, 254, 247);
   --link_color: #ff6347;
   --box-shadow-value: 10px 5px 20px 10px rgba(227, 254, 247, 0.3);
   --swiper-pagination-h-value: var(--main_color_d4);
@@ -26,7 +26,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 
 .product {
   margin: 1px 1px;
@@ -63,7 +62,6 @@ body {
 .product-txet .header_text {
   padding: 10px 0 0 0;
   font-size: 26px;
-  max-width: 240px;
   line-height: 1.5;
   text-align: center;
   font-weight: 400;
@@ -71,19 +69,18 @@ body {
 }
 
 .product-txet .dis_text {
-  margin-top: 10px;
-  font-size: 20px;
-  max-width: 240px;
+  padding: 12px 15px 0 15px;
+   font-size: 20px;
   line-height: 1.5;
   font-weight: 400;
-  text-align: center;
+  text-align: justify;
   z-index: 1;
 }
 
 .product-txet .dis_text_a {
-  padding: 12px 0 0 0;
+  padding: 12px 15px 0 15px;
   font-size: 16px;
-  max-width: 90%;
+  
   line-height: 1.5;
   font-weight: 400;
   text-align: center;
@@ -102,14 +99,11 @@ body {
   z-index: 1;
 }
 
-
-
 .animat_pro_new body {
   background: var(--main_color_d1);
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   height: 550px !important;
 }
-
 
 .animat_pro_new .swiper-container_new {
   max-width: 75vw;
@@ -135,36 +129,80 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start; /* تغییر از center به flex-start */
+  position: relative;
 }
 
-.animat_pro_new .swiper-slide img {
-  top: 0 !important;
+.animat_pro_new .swiper_imag {
+  position: relative; /* برای قرار دادن overlay روی عکس */
+  width: 100%;
+  height: 250px; /* ارتفاع متناسب با عکس */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animat_pro_new .swiper_imag img {
   display: block;
-  width: 100%; /* تنظیم عرض تصاویر به 100% */
-  height: 250px; /* تنظیم ارتفاع تصاویر به 80% */
-  object-fit: cover; /* استفاده از object-fit */
-  object-position: top; /* اطمینان از چسبیدن تصاویر به بالاترین قسمت */
+  width: 85%;
+  height: 85%;
+  border-radius: 10px;
+  object-fit: cover; /* حفظ نسبت تصویر */
+  object-position: center; /* چسبیدن تصویر به بالا */
 }
 
-.animat_pro_new .slide-content {
-  text-align: center;
-  padding: 10px;
+.animat_pro_new .overlay {
+  position: absolute; /* قرار دادن overlay روی عکس */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* جلوگیری از تداخل overlay با تعاملات کاربر */
+  box-shadow: inset 0px 0px 30px 20px rgba(0, 60, 67, 1);
 }
 
-.animat_pro_new .slide-content h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
+.slid_produce {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* تراز عمودی آیتم‌ها */
+  justify-content: space-between; /* فاصله بین آیتم‌ها */
+  width: 100%; /* پر کردن عرض والد */
+}
+
+.slid_produce_contact {
+  flex: 1; /* پر کردن فضای باقی‌مانده */
+}
+
+.shoping_icon {
+  margin-left: 1px; /* فاصله بین آیکون و متن */
+}
+
+.shoping_icon a {
+  display: inline-block;
+  width: 50px; /* عرض آیکون */
+  height: 50px; /* ارتفاع آیکون */
+}
+
+.shoping_icon a img {
+  width: 100%; /* پر کردن عرض والد */
+  height: 100%; /* پر کردن ارتفاع والد */
+  object-fit: contain; /* حفظ نسبت تصویر */
+}
+
+ .slide-content h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
 }
 
 .animat_pro_new .slide-content h4 .span_header_t,
 .animat_pro_new .slide-content h4 .span_type {
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .animat_pro_new .slide-content a {
   color: var(--link_color);
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 500;
 }
 
 .animat_pro_new .slide-content a:hover {
@@ -178,24 +216,24 @@ body {
   text-align: justify;
   font-weight: 400;
 }
+.animat_pro_new .swiper-pagination {
+  position: absolute;
+  bottom: 15px;
+  text-align: center;
+  z-index: 10;
+}
 
 .animat_pro_new .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+  width: 20px;
+  height: 10px;
   background-color: var(--swiper-pagination-s-value);
   opacity: 0.8;
   border-radius: 0;
+  border-radius: 20px;
 }
 
 .animat_pro_new .swiper-pagination-bullet-active {
   background-color: var(--swiper-pagination-h-value);
-}
-
-.animat_pro_new .swiper-pagination_new {
-  position: absolute;
-  bottom: 10px;
-  text-align: center;
-  z-index: 10;
 }
 
 .animat_pro_new .swiper-button-next,
@@ -231,7 +269,6 @@ body {
 
   .product-txet .dis_text_a {
     height: auto;
-    max-width: 88%;
     padding: 5px 0;
     margin: 0;
     line-height: 1;
@@ -243,8 +280,6 @@ body {
 }
 
 @media (max-width: 768px) {
- 
-
   .product {
     display: flex;
     flex-direction: column;
@@ -258,10 +293,11 @@ body {
   }
 
   .product-txet {
-top:20;
+    top: 20;
   }
-  
-  .product-txet, .product-swiper {
+
+  .product-txet,
+  .product-swiper {
     flex: 1 1 100%;
     width: 95vw;
     height: auto;
@@ -269,14 +305,10 @@ top:20;
     box-sizing: border-box;
     position: relative; /* تنظیم موقعیت نسبی */
   }
-  
-.animat_pro_new .swiper-slide {
 
-  margin:0 0  20px 0;
- 
-}
-
-  
+  .animat_pro_new .swiper-slide {
+    margin: 0 0 20px 0;
+  }
 
   .animat_pro_new .swiper-container_new {
     max-width: 100%;
@@ -288,22 +320,43 @@ top:20;
     padding: 6px 0 0 0;
     font-size: 20px;
     line-height: 1.2;
-    text-align: center;
-    font-weight: 300;
+    text-align: justify;
+    font-weight: 400;
     z-index: 1;
+  }
+  .product-txet .dis_text {
+    font-size: 18px;
+    padding: 12px 15px 6px 15px;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: justify;
+    z-index: 1;
+    margin: 0;
   }
 
   .product-txet .dis_text_a {
     top: 0 !important; /* تنظیم نقطه شروع به صفر */
     position: relative; /* اطمینان از موقعیت نسبی */
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 12px 0 0 0;
-    font-size: 16px;
+    /* max-width: 100% !important; */
+    padding: 12px 15px 6px 15px;
+    font-size: 14px;
     line-height: 1.5;
     font-weight: 400;
     text-align: center;
     text-align: justify;
     z-index: 1;
   }
+  .animat_pro_new .swiper-button-next,
+  .animat_pro_new .swiper-button-prev {
+    --swiper-navigation-size: 20px;
+    color: var(--main_color_d3);
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+
 }
