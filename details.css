@@ -40,11 +40,12 @@ h1 {
   display: flex;
   flex-direction: row;
   direction: ltr;
-  width: 95vw;
+  /* align-items: center; */
   margin: 0 auto;
-  height: 450px;
-  background: var(--main_color_d1);
-  /* padding: 20px; */
+  /* max-width: 95vw; */
+ height: 400px;
+  background: var(--main_color_d2);
+  padding: 20px;
   border-radius: 1px;
   box-shadow: var(--box-shadow-value);
 }
@@ -57,15 +58,14 @@ h1 {
 .product-img img {
   width: 40vw;
   height: 100%;
-  border-radius: 5px;
-
+  padding:5px 30px 5px 10px;
 }
 
 .product-info {
   direction: rtl;
   width: 55vw;
-  text-align: right;
-  padding:20px 20px 20px 30px;
+ 
+  text-align: right; /* چسباندن متن به راست */
 }
 
 .product-header {

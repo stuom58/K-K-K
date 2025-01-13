@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", async function () {
   // بارگذاری داده‌های JSON
   async function loadSlides() {
-    const response = await fetch('data.json');
+    const response = await fetch('./data.json');
     const data = await response.json();
     return data.slides;
   }
 
   async function fetchProductTextData() {
-    const response = await fetch('swiper_tow.json');
+    const response = await fetch('./swiper_tow.json');
     return await response.json();
   }
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <div class="shoping_icon">
               <a href="/Menu/pages/form_email.html" target="_top">
-                <img src="buy-now (4).png" alt="Buy Now">
+                <img src="./../../photo/icon/buy-now (4).png" alt="Buy Now">
               </a>
             </div>
           </div>

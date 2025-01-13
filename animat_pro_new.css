@@ -236,6 +236,13 @@ body {
   background-color: var(--swiper-pagination-h-value);
 }
 
+.animat_pro_new .swiper-pagination_new {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  z-index: 10;
+}
+
 .animat_pro_new .swiper-button-next,
 .animat_pro_new .swiper-button-prev {
   --swiper-navigation-size: 30px;
